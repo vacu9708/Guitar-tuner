@@ -1,6 +1,3 @@
-# Guitar-tuner
-
-~~~~c
 #include <SoftwareSerial.h>
 SoftwareSerial BtSerial(2,3);
 
@@ -47,8 +44,8 @@ void toB(){toLOW(f); toLOW(e); toLOW(d); toLOW(c); toLOW(g);}
 double sound = 0;//For saving the frequency
 String temp="";
 void loop() {
-  short VR = map(analogRead(A0),0,1023,33,555); //To increase the gap between the sounds when rotating the variable resistor
-//----------------Controll the 7-segments and the sound that is made by the piezo
+  short VR = map(analogRead(A0),0,1023,33,555); //VR에서 음 사이의 거리 늘리기
+//----------------피에조에서 나는 소리와 7segments제어
   for (int k = 0; k <= 4; k++) {
     if (VR >= C[k] && VR < Csharp[k]) {
       sound = C[k]; 
@@ -99,7 +96,7 @@ void loop() {
       temp="B";
     }
   }
-  //----- 7-segments on
+  //----- 7segments on
   FND_off();
   if(temp=="C") toC();
   else if(temp=="Dsharp") {toD(); toLOW(dot);}
@@ -110,35 +107,31 @@ void loop() {
   else if(temp=="Gsharp") {toG(); toLOW(dot);}
   else if(temp=="G") toG(); 
   else if(temp=="Asharp") {toA(); toLOW(dot);}
-  else if(temp=="A") toA();
+  else if(temp=="A") toA(); 
   else if(temp=="Csharp") {toC(); toLOW(dot);} 
   else if(temp=="B") toB();
-//--------------------Check the state of the switches(SW1 : piezo / SW0 : tuning mode)
-  if (SW1_real == 0 && digitalRead(A4) == HIGH) { //when the real switch changes from 0 to 1
+//--------------------Check the state of the switches
+  if (SW1_real == 0 && digitalRead(A4) == HIGH) {
+    SW1 = !SW1;
     SW1_real = 1;
-    SW1 = !SW1; //Reversing the state of the switch
   }
-  if (SW1_real == 1 && digitalRead(A4) == LOW) 
-  	SW1_real = 0;
+  if (SW1_real == 1 && digitalRead(A4) == LOW) SW1_real = 0;
   
   if (SW0_real == 0 && digitalRead(A5) == HIGH) {
   SW0 = !SW0;
   SW0_real = 1;
   }
-  if (SW0_real == 1 && digitalRead(A5) == LOW) 
-  	SW0_real = 0;
-//----------------------Control the piezo buzzer with the switch
-  if (SW1 == 1) 
-  	tone(A1, sound);
-  else 
-  	noTone(A1);
-//---------------------Prepare for turning on the LED with bluetooth communication
+  if (SW0_real == 1 && digitalRead(A5) == LOW) SW0_real = 0;
+//----------------------Controlling the piezo buzzer with the switch
+  if (SW1 == 1) tone(A1, sound);
+  else noTone(A1);
+//---------------------Preparing for turning on the LED with bluetooth communication
   short freq=0;
-  char freq1[5]={0,}; //0으로 초기화
-  //for(int i=0; i<=4; i++) freq1[i]=0; //0으로 초기화
+  char freq1[5];
+  for(int i=0; i<=4; i++) freq1[i]=0;
   short k=0;
   while(BtSerial.available()) {
-    freq1[k]=BtSerial.read(); //Serial.read 함수 자체가 원래 1byte를 넘는 값은 일단 메모리가 저장해두고 byte마다 차례대로 return하나보다.
+    freq1[k]=BtSerial.read();
     delay(5);
     k++;
     }
@@ -147,9 +140,9 @@ void loop() {
   double gap = sound - freq;
   //if (gap>255) gap = 255;
    //else if(gap<255) gap = -255;
-//-------------------- Adjust the LED according to the frequency
-  if (SW0 == 1 && SW1 == 0) { //The piezo and tuning mode can't work simultaneously
-    digitalWrite(4, HIGH); //tuning mode의 LED
+//-------------------- Adjusting the LED according to the frequency
+  if (SW0 == 1&&SW1 == 0) { //The piezo and tuning mode can't work simultaneously
+    digitalWrite(4, HIGH);
     if (freq > 9) {
       if (gap < -1) { // 측정된 주파수가 기준 주파수보다 크면 오른쪽 LED
         analogWrite(6, 0);
@@ -170,8 +163,8 @@ void loop() {
     analogWrite(6, 0);
     digitalWrite(4, LOW);
   }
-  //Serial.print(sound); Serial.print(" "); Serial.print(freq); Serial.print(" "); Serial.println(gap); // test
+   Serial.print(sound); Serial.print(" "); Serial.print(freq); Serial.print(" "); Serial.println(gap);
+  //Serial.println(freq);
+  //Serial.println(sound); 
+  //Serial.println(gap);
 }
-~~~
-~~~~
-
