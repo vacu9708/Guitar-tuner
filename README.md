@@ -6,12 +6,12 @@ I made a tuner can tune musical instruments to learn basic things of embedded sy
 ### 📺Video(korean without subtitles) : https://youtu.be/h5mfWexaDTg
 ---
 ## How it works, how to use
-* First, you have to set the target note by adjusting the adjustable resistance.
-* The target note is shown on the 7-segments.
-* You can hear the target note by pressing *Switch1* and the sound is turned off by pressing it again. You can't tune while hearing it)
-* *Switch0* starts tuning
-* When the LED on the far right is on, it's tuning mode.
-* If the frequency of the instrument measured is higher than the target frequency(that is, when the sound of the instrument is higher than the target sound) the LED on the right is turned on. When it's opposite, the LED on the left is turned on. When the sound of the instrument and the target sound are almost the same, both LEDs are turned on which means tuning has been done well.
+* First, you have to set the target note by adjusting the ***adjustable resistance***.
+* The target note is shown on the ***7-segments***.
+* You can hear the target note by pressing ***Switch1*** and the sound is turned off by pressing it again. You can't tune while hearing it)
+* ***Switch0*** starts tuning
+* When the ***LED*** on the far right is on, it's tuning mode.
+* If the frequency of the instrument measured is higher than the target frequency(that is, when the sound of the instrument is higher than the target sound) the ***LED*** on the right is turned on. When it's opposite, the ***LED*** on the left is turned on. When the sound of the instrument and the target sound are almost the same, both ***LEDs*** are turned on which means tuning has been done well.
 
 ## Devices used
 * **LEDs** to show the direction to tune, that is, whether to raise or lower the pitch
