@@ -1,5 +1,5 @@
 # 🎹(Guitar)-tuner
-I made a tuner that can tune musical instruments, even voice not only guitar, in order to get used to basic things of embedded system development.
+I made a tuner that can tune musical instruments, even voice not only guitar, in order to get used to the basic things of embedded system development.
 
 <img src="https://user-images.githubusercontent.com/67142421/148652185-68497dea-50c6-4090-aba9-56ea0dacf683.jpg" width="400" height="500">
 
@@ -10,8 +10,8 @@ I made a tuner that can tune musical instruments, even voice not only guitar, in
 * The target note is shown on the ***7-segments***.
 * You can hear the target note by pressing ***Switch1*** and the sound is turned off by pressing it again. You can't tune while hearing it)
 * ***Switch0*** starts tuning
-* When the ***LED*** on the far right is on, it's tuning mode.
-* If the frequency of the instrument measured is higher than the target frequency(that is, when the sound of the instrument is higher than the target sound) the ***LED*** on the right is turned on. When it's opposite, the ***LED*** on the left is turned on. When the sound of the instrument and the target sound are almost the same, both ***LEDs*** are turned on which means tuning has been done well.
+* When the ***LED*** on the far right is on, it's in tuning mode.
+* If the frequency of the instrument measured is higher than the target frequency(that is, when the sound of the instrument is higher than the target sound) the ***LED*** on the right is turned on. When it's opposite, the ***LED*** on the left is turned on. When the sound of the instrument and the target sound are almost the same, both ***LEDs*** are turned on which means the tuning has been done well.
 
 ## ⚒️Devices used
 * **Arduino**
