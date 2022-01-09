@@ -27,6 +27,6 @@ As far as I knew, the piezoelectric element was a bi-directional element where s
 The most difficult problem that took much time to solve was that arduino(atmega128) can only receive 1 byte at a time. I searched for it and found out a way of merging each 1 byte with atoi() function and managed to solve it.
 
 ## My opinion
-Measuring frequency with *fourier transform*, which is the most important part of a tuner, was by a library. I didn't write its code on my own.
+Measuring frequency with *fourier transform*, which is the most important part of a tuner, was implemented by a library in this work. I didn't write its code on my own.
 I'd like to make a tuner by programming the code for measuring the frequency on my own soon, without a library like this one.
 
