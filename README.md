@@ -23,8 +23,8 @@ I made a tuner that can tune musical instruments, even voice not only guitar, in
 * **7-segments** to show the current target note
 
 ## Difficulties I went through making it
-As far as I knew, the piezoelectric element was a bi-directional element where sound is made when electricity flows through it and also electricity is made by pressure including the pressure by sound. But the effect of the piezoelectric element of making electricity by sound, which is one of the two effects, didn't work. I didn't know the reason. So I changed the plan to measuring the frequency from a phone and sending it to the tuner by Bluetooth.
-The most difficult problem that took much time to solve was that arduino(atmega128) can only receive 1 byte at a time. I searched for it and found out a way of merging each 1 byte with atoi() function and managed to solve it.
+As far as I knew, the piezoelectric element was a bi-directional element where sound is made when electricity flows through it and electricity is also made by pressure including the pressure by sound. But the effect of the piezoelectric element of making electricity by sound, which is one of the two effects, didn't work. I didn't know the reason. So I changed the plan to measuring the frequency from a phone and sending it to the tuner by Bluetooth.
+The most difficult problem that took much time to solve was that arduino(atmega128) could only receive 1 byte at a time. I searched for it and found out a way of merging each 1 byte with atoi() function and managed to solve it.
 
 ## My opinion
 Measuring frequency with *fourier transform*, which is the most important part of a tuner, was implemented by a library in this work. I didn't write its code on my own.
