@@ -1,4 +1,4 @@
-# 🎹Guitar-tuner
+# 🎹(Guitar)-tuner
 I made a tuner that can tune musical instruments, even voice not only guitar, in order to get used to basic things of embedded system development.
 
 <img src="https://user-images.githubusercontent.com/67142421/148652185-68497dea-50c6-4090-aba9-56ea0dacf683.jpg" width="400" height="500">
