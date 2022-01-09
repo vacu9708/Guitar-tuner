@@ -32,15 +32,33 @@ void FND_on(){
   for(int k=8; k<=13; k++) digitalWrite(k,LOW); 
   digitalWrite(g,LOW); digitalWrite(dot,LOW); 
   }
-void toLOW(char a) {digitalWrite(a,LOW);}
-void toHIGH(char a) {digitalWrite(a, HIGH);}
-void toC(){toLOW(a); toLOW(f); toLOW(e); toLOW(d);}
-void toD(){toLOW(b); toLOW(c); toLOW(d); toLOW(e); toLOW(g);}
-void toE(){toLOW(a); toLOW(f); toLOW(e); toLOW(d); toLOW(g);}
-void toF(){toLOW(a); toLOW(f); toLOW(e); toLOW(g);}
-void toG(){toLOW(a); toLOW(f); toLOW(e); toLOW(d); toLOW(c);}
-void toA(){toLOW(a); toLOW(b); toLOW(c); toLOW(e); toLOW(f); toLOW(g);}
-void toB(){toLOW(f); toLOW(e); toLOW(d); toLOW(c); toLOW(g);}
+void toLOW(char a)
+  digitalWrite(a,LOW);
+
+void toHIGH(char a)
+  digitalWrite(a, HIGH);
+
+void toC(){
+  toLOW(a); toLOW(f); toLOW(e); toLOW(d);
+}
+void toD(){
+  toLOW(b); toLOW(c); toLOW(d); toLOW(e); toLOW(g);
+}
+void toE(){
+  toLOW(a); toLOW(f); toLOW(e); toLOW(d); toLOW(g);
+}
+void toF(){
+  toLOW(a); toLOW(f); toLOW(e); toLOW(g);
+}
+void toG(){
+  toLOW(a); toLOW(f); toLOW(e); toLOW(d); toLOW(c);
+}
+void toA(){
+  toLOW(a); toLOW(b); toLOW(c); toLOW(e); toLOW(f); toLOW(g);
+}
+void toB(){
+  toLOW(f); toLOW(e); toLOW(d); toLOW(c); toLOW(g);
+}
 
 double sound = 0;//For saving the frequency
 String temp="";
