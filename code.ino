@@ -14,7 +14,8 @@ void setup() {
   pinMode(A4, INPUT); //sound toggle
   pinMode(A5, INPUT); //tuning toggle
   pinMode(4, OUTPUT);
-  for (int f = 8; f <= 13; f++) pinMode(f, OUTPUT);
+  for (int f = 8; f <= 13; f++) 
+    pinMode(f, OUTPUT);
   C[0] = 32.7032, Csharp[0] = 34.6478, D[0] = 36.7081, Dsharp[0] = 38.8909, E[0] = 41.2034, F[0] = 43.6535, 
   Fsharp[0] = 46.2493, G[0] = 48.9994, Gsharp[0] = 51.9130, A[0] = 55, Asharp[0] = 58.2705, B[0] = 61.7354;
   for (int f = 1; f <= 4; f++) {
@@ -99,32 +100,54 @@ void loop() {
   //----- 7segments on
   FND_off();
   if(temp=="C") toC();
-  else if(temp=="Dsharp") {toD(); toLOW(dot);}
-  else if(temp=="D") toD(); 
-  else if(temp=="E") toE();
-  else if(temp=="Fsharp") {toF(); toLOW(dot);}
-  else if(temp=="F") toF();
-  else if(temp=="Gsharp") {toG(); toLOW(dot);}
-  else if(temp=="G") toG(); 
-  else if(temp=="Asharp") {toA(); toLOW(dot);}
-  else if(temp=="A") toA(); 
-  else if(temp=="Csharp") {toC(); toLOW(dot);} 
-  else if(temp=="B") toB();
+  else if(temp=="Dsharp") {
+    toD(); 
+    toLOW(dot);
+  }
+  else if(temp=="D") 
+    toD(); 
+  else if(temp=="E") 
+    toE();
+  else if(temp=="Fsharp") {
+    toF(); 
+    toLOW(dot);
+  }
+  else if(temp=="F") 
+    toF();
+  else if(temp=="Gsharp") {
+    toG(); toLOW(dot);
+  }
+  else if(temp=="G") 
+    toG(); 
+  else if(temp=="Asharp") {
+    toA(); toLOW(dot);
+  }
+  else if(temp=="A") 
+    toA(); 
+  else if(temp=="Csharp") {
+    toC(); toLOW(dot);
+  } 
+  else if(temp=="B") 
+    toB();
 //--------------------Check the state of the switches
   if (SW1_real == 0 && digitalRead(A4) == HIGH) {
     SW1 = !SW1;
     SW1_real = 1;
   }
-  if (SW1_real == 1 && digitalRead(A4) == LOW) SW1_real = 0;
+  if (SW1_real == 1 && digitalRead(A4) == LOW) 
+    SW1_real = 0;
   
   if (SW0_real == 0 && digitalRead(A5) == HIGH) {
   SW0 = !SW0;
   SW0_real = 1;
   }
-  if (SW0_real == 1 && digitalRead(A5) == LOW) SW0_real = 0;
+  if (SW0_real == 1 && digitalRead(A5) == LOW) 
+    SW0_real = 0;
 //----------------------Controlling the piezo buzzer with the switch
-  if (SW1 == 1) tone(A1, sound);
-  else noTone(A1);
+  if (SW1 == 1) 
+    tone(A1, sound);
+  else 
+    noTone(A1);
 //---------------------Preparing for turning on the LED with bluetooth communication
   short freq=0;
   char freq1[5];
@@ -135,11 +158,11 @@ void loop() {
     delay(5);
     k++;
     }
-    freq=atoi(freq1);
+  freq=atoi(freq1);
     
   double gap = sound - freq;
   //if (gap>255) gap = 255;
-   //else if(gap<255) gap = -255;
+  //else if(gap<255) gap = -255;
 //-------------------- Adjusting the LED according to the frequency
   if (SW0 == 1&&SW1 == 0) { //The piezo and tuning mode can't work simultaneously
     digitalWrite(4, HIGH);
