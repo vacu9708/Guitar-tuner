@@ -29,5 +29,5 @@ The most difficult problem that took much time to solve was that arduino(atmega1
 
 ## My opinion
 Measuring frequency with *fourier transform*, which is the most important part of a tuner, was implemented by a library in this work.
-I'd like to make a tuner by programming the code for measuring the frequency on my own soon, without a library like this one.
+I'd like to make a tuner by programming the code for measuring the frequency on my own soon without a library like this one.
 
