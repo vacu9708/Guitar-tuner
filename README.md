@@ -31,6 +31,7 @@ The most difficult problem that took much time to solve was that arduino(atmega1
 I implemented measuring the frequency, which is the most important part of a tuner, using a library in this work.
 I'd like to make a tuner by programming the code for measuring the frequency on my own soon without using a library.
 
+---
 ## Feb / 25 / 2022
-I studied how to measure the frequency and tried implementing it.
-[How to measure the frequency](https://github.com/vacu9708/Signal-processing/blob/main/Fourier%20transform/README.md)
+I studied how to measure the frequency and tried implementing it.<br>
+Here [How to measure the frequency](https://github.com/vacu9708/Signal-processing/blob/main/Fourier%20transform/README.md)
