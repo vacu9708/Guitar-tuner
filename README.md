@@ -29,7 +29,7 @@ The most difficult problem that took much time to solve was that arduino(atmega1
 
 ## My opinion
 I implemented measuring the frequency, which is the most important part of a tuner, using a library in this work.
-I'd like to make a tuner by programming the code for measuring the frequency on my own soon without using a library.
+I'd like to write the code for measuring the frequency on my own without using a library soon.
 
 ---
 ## Feb / 25 / 2022
