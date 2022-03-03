@@ -4,7 +4,7 @@
 
 ### 📺Video(korean without subtitles) : https://youtu.be/h5mfWexaDTg
 ---
-I made a tuner that can tune musical instruments, even voice not only guitar, in order to get used to the basic things of embedded system development.
+I made a tuner that can tune musical instruments to learn the basic things of embedded system development.
 
 ## How it works, how to use
 * First, you have to set the target note by adjusting the ***adjustable resistance***.
