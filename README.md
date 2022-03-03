@@ -32,6 +32,6 @@ I implemented measuring the frequency, which is the most important part of a tun
 I'd like to write the code for measuring the frequency on my own without using a library soon.
 
 ---
-## Feb / 25 / 2022
+## February 25, 2022
 I studied how to measure the frequency and tried implementing it.<br>
 Here [How to measure the frequency](https://github.com/vacu9708/Signal-processing/blob/main/Fourier%20transform/README.md)
