@@ -24,12 +24,11 @@ I made a tuner that can tune musical instruments to learn the basic things of em
 * **7-segments** to show the current target note
 
 ## Difficulties I went through making it
-As far as I knew, the piezoelectric element was a bi-directional element where sound is made when electricity flows through it and electricity is also made by pressure including the pressure by sound. But the effect of the piezoelectric element of making electricity by sound, which is one of the two effects, didn't work. I didn't know the reason. So I changed the plan to measuring the frequency from a phone and sending it to the tuner by Bluetooth.
+As far as I knew, the piezoelectric element was a bi-directional element where sound is made when electricity flows through it and electricity is also made by pressure including the pressure by sound. But the effect of making electricity with sound didn't work in this embedded system. I didn't know the reason. So I changed the plan to measuring the frequency from a phone and sending it to the tuner through Bluetooth.
 The most difficult problem that took much time to solve was that arduino(atmega128) could only receive 1 byte at a time. I searched for it and found out a way of merging each 1 byte with atoi() function and managed to solve it.
 
 ## My opinion
-I implemented measuring the frequency, which is the most important part of a tuner, using a library in this work.
-I'd like to write the code for measuring the frequency on my own without using a library soon.
+I tried to find how to implement measuring the frequency, which is the most important part of a tuner, but I realized it was too complicated and I used a library for it at the time. I'd like to write the code for measuring the frequency on my own without using a library soon.
 
 ---
 ## February 25, 2022
