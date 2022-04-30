@@ -14,7 +14,7 @@ I made a tuner that can tune musical instruments to learn the basic things of em
 * When the ***LED*** on the far right is on, it's in tuning mode.
 * If the frequency of the instrument measured is higher than the target frequency(that is, when the sound of the instrument is higher than the target sound) the ***LED*** on the right is turned on. When it's opposite, the ***LED*** on the left is turned on. When the sound of the instrument and the target sound are almost the same, both ***LEDs*** are turned on which means the tuning has been done well.
 
-## ⚒️Devices used
+## ⚒️Things used
 * **Arduino**
 * **LEDs** to show the direction to tune, that is, whether to raise or lower the pitch
 * **Switches** to change the mode of tuner
@@ -22,13 +22,14 @@ I made a tuner that can tune musical instruments to learn the basic things of em
 * **Piezoelectric element** to play the target note to help tuning
 * **Bluetooth** to receive the frequency data from a phone
 * **7-segments** to show the current target note
+* **Frequency measurer made with MIT app inventor**
 
 ## Difficulties I went through making it
 As far as I knew, the piezoelectric element was a bi-directional element where sound is made when electricity flows through it and electricity is also made by pressure including the pressure by sound. But the effect of making electricity with sound didn't work in this embedded system. I didn't know the reason. So I changed the plan to measuring the frequency from a phone and sending it to the tuner through Bluetooth.
 The most difficult problem that took much time to solve was that arduino(atmega128) could only receive 1 byte at a time. I searched for it and found out a way of merging each 1 byte with atoi() function and managed to solve it.
 
 ## My opinion
-I tried to implement measuring the frequency, which is the most important part of a tuner, but I realized it was too complicated, so I used a library for it at the time. I'd like to write the code for measuring the frequency on my own without using a library soon.
+I tried to implement measuring the frequency, which is the most important part of a tuner. But I realized it was too complicated, so I used a library for it at first. I'd like to write the code for measuring the frequency on my own without using the library soon.
 
 ---
 ## February 25, 2022
