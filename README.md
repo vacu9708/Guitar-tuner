@@ -2,7 +2,7 @@
 
 <img src="https://user-images.githubusercontent.com/67142421/148652185-68497dea-50c6-4090-aba9-56ea0dacf683.jpg" width="400" height="500">
 
-### 📺Video(korean without subtitles) : https://youtu.be/h5mfWexaDTg
+### 📺Video : https://youtu.be/h5mfWexaDTg
 ---
 I made a tuner that can tune musical instruments to learn the basic things of embedded system development.
 
