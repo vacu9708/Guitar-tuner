@@ -33,4 +33,4 @@ I tried to implement measuring the frequency, which is the most important part o
 
 ---
 ## February 25, 2022
-[How to measure the frequency](https://github.com/vacu9708/Signal-processing/blob/main/Fourier%20transform/README.md)
+[How to measure the frequency](https://github.com/vacu9708/Signal-processing/tree/main/Fourier%20transform)
