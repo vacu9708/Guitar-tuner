@@ -4,8 +4,6 @@
 
 ### 📺Video : https://youtu.be/h5mfWexaDTg
 ---
-I made a tuner that can tune musical instruments to learn the basic things of embedded system development.
-
 ## How it works, how to use
 * First, you have to set the target note by adjusting the ***adjustable resistance***.
 * The target note is shown on the ***7-segments***.
