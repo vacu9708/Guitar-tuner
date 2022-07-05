@@ -31,4 +31,4 @@ I tried to implement measuring the frequency, which is the most important part o
 
 ---
 ## February 25, 2022
-[How to frequencies are measured mathematically](https://github.com/vacu9708/Signal-processing/tree/main/Fourier%20transform)
+[How frequencies are measured fundamentally](https://github.com/vacu9708/Signal-processing/tree/main/Fourier%20transform)
