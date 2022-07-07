@@ -28,6 +28,7 @@ Another problem : I did not know arduino(atmega128) could only receive 1 byte at
 
 ## My opinion
 I tried to implement measuring the frequency, which is the most important part of a tuner. But I realized it was mathematically too complicated, so I used a library for it at first. I would like to write code for measuring the frequency on my own without using the library soon.
+
 ---
 ## February 25, 2022
 [Fundamental working process of measuring frequencies](https://github.com/vacu9708/Signal-processing/tree/main/Fourier%20transform)
