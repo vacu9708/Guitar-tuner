@@ -20,7 +20,7 @@
 * **Piezoelectric element** to play the target note to help tuning
 * **Bluetooth** to receive the frequency data from a phone
 * **7-segments** to show the current target note
-* **Frequency measurer made with MIT app inventor**
+* **Frequency measurer.aia (app inventor extension)**
 
 ## Difficulties I went through making it
 As far as I knew, the piezoelectric element was a bi-directional element where electricity flowing through it makes sound and pressure applied to it makes electricity. But making electricity with sound did not work in this embedded system. I did not know the reason. So I changed the plan to measuring the frequency from a phone and sending it to the tuner via Bluetooth.<br>
