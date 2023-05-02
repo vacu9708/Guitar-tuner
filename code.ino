@@ -63,9 +63,9 @@ void toB(){
 double sound = 0;//For saving the frequency
 String temp="";
 void loop() {
-  short VR = map(analogRead(A0),0,1023,33,555); //VR에서 음 사이의 거리 늘리기
+  short VR = map(analogRead(A0),0,1023,33,555); //VR value to freqency range
 //----------------피에조에서 나는 소리와 7segments제어
-  for (int k = 0; k <= 4; k++) {
+  for (int k = 0; k <= 4; k++) { // Changing the harmonic to its base frequency with VR -= 65.4064 * (VR/65.406) will make this for loop unnecessary
     if (VR >= C[k] && VR < Csharp[k]) {
       sound = C[k]; 
       temp="C";
