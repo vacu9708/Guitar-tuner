@@ -11,14 +11,15 @@ void setup() {
   pinMode(A1, OUTPUT); //PIEZO
   pinMode(A2, OUTPUT); // g of the FND
   pinMode(A3, OUTPUT); // sharp
-  pinMode(A4, INPUT); //sound_freq toggle
+  pinMode(A4, INPUT); //target_freq toggle
   pinMode(A5, INPUT); //tuning toggle
   pinMode(4, OUTPUT);
   for (int f = 8; f <= 13; f++) 
     pinMode(f, OUTPUT);
+  
   C[0] = 32.7032, Csharp[0] = 34.6478, D[0] = 36.7081, Dsharp[0] = 38.8909, E[0] = 41.2034, F[0] = 43.6535, 
   Fsharp[0] = 46.2493, G[0] = 48.9994, Gsharp[0] = 51.9130, A[0] = 55, Asharp[0] = 58.2705, B[0] = 61.7354;
-  for (int f = 1; f <= 4; f++) { // Changing the harmonic to its base frequency with VR -= 65.4064 * (VR/65.406) will make this for loop unnecessary
+  for (int f = 1; f <= 4; f++) {
     C[f] = 2 * C[f - 1]; Csharp[f] = 2 * Csharp[f - 1]; D[f] = 2 * D[f - 1]; Dsharp[f] = 2 * Dsharp[f - 1]; E[f] = 2 * E[f - 1]; F[f] = 2 * F[f - 1];
     Fsharp[f] = 2 * Fsharp[f - 1]; G[f] = 2 * G[f - 1]; Gsharp[f] = 2 * Gsharp[f - 1]; A[f] = 2 * A[f - 1]; Asharp[f] = 2 * Asharp[f - 1]; B[f] = 2 * B[f - 1];
   }
@@ -60,92 +61,92 @@ void toB(){
   toLOW(f); toLOW(e); toLOW(d); toLOW(c); toLOW(g);
 }
 
-double sound_freq = 0;//For saving the frequency
-String sound_name="";
+double target_freq = 0;//For saving the frequency
+String freq_name="";
 void loop() {
   //---피에조에서 나는 소리와 7segments설정
   short VR = map(analogRead(A0),0,1023,33,555); //VR value to freqency range
   for (int k = 0; k <= 4; k++) { // Changing the harmonic to its base frequency with VR -= 65.4064 * (VR/65.406) will make this for loop unnecessary
     if (VR >= C[k] && VR < Csharp[k]) {
-      sound_freq = C[k]; 
-      sound_name="C";
+      target_freq = C[k]; 
+      freq_name="C";
     }
     else if (VR >= Csharp[k] && VR < D[k]) {
-      sound_freq = Csharp[k]; 
-      sound_name="Csharp";
+      target_freq = Csharp[k]; 
+      freq_name="Csharp";
     }
     else if (VR >= D[k] && VR < Dsharp[k]) {
-      sound_freq = D[k]; 
-      sound_name="D";
+      target_freq = D[k]; 
+      freq_name="D";
     }
     else if (VR >= Dsharp[k] && VR < E[k]) {
-      sound_freq = Dsharp[k]; 
-      sound_name="Dsharp";
+      target_freq = Dsharp[k]; 
+      freq_name="Dsharp";
     }
     else if (VR >= E[k] && VR < F[k]) {
-      sound_freq = E[k]; 
-      sound_name="E";
+      target_freq = E[k]; 
+      freq_name="E";
     }
     else if (VR >= F[k] && VR < Fsharp[k]) {
-      sound_freq = F[k]; 
-      sound_name="F";
+      target_freq = F[k]; 
+      freq_name="F";
     }
     else if (VR >= Fsharp[k] && VR < G[k]) {
-      sound_freq = Fsharp[k]; 
-      sound_name="Fsharp";
+      target_freq = Fsharp[k]; 
+      freq_name="Fsharp";
     }
     else if (VR >= G[k] && VR < Gsharp[k]) {
-      sound_freq = G[k]; 
-      sound_name="G";
+      target_freq = G[k]; 
+      freq_name="G";
     }
     else if (VR >= Gsharp[k] && VR < A[k]) {
-      sound_freq = Gsharp[k]; 
-      sound_name="Gsharp";
+      target_freq = Gsharp[k]; 
+      freq_name="Gsharp";
     }
     else if (VR >= A[k] && VR < Asharp[k]) {
-      sound_freq = A[k]; 
-      sound_name="A";
+      target_freq = A[k]; 
+      freq_name="A";
     }
     else if (VR >= Asharp[k] && VR < B[k]) {
-      sound_freq = Asharp[k]; 
-      sound_name="Asharp";
+      target_freq = Asharp[k]; 
+      freq_name="Asharp";
     }
     else if (VR >= B[k]) {
-      sound_freq = B[k]; 
-      sound_name="B";
+      target_freq = B[k]; 
+      freq_name="B";
     }
   }
   //---7segments on
   FND_off();
-  if(sound_name=="C") toC();
-  else if(sound_name=="Dsharp") {
+  if(freq_name=="C") toC();
+  else if(freq_name=="Dsharp") {
     toD(); 
     toLOW(dot);
   }
-  else if(sound_name=="D") 
+  else if(freq_name=="D") 
     toD(); 
-  else if(sound_name=="E") 
+  else if(freq_name=="E") 
     toE();
-  else if(sound_name=="Fsharp") {
+  else if(freq_name=="Fsharp") {
     toF(); 
     toLOW(dot);
   }
-  else if(sound_name=="F") 
+  else if(freq_name=="F") 
     toF();
-  else if(sound_name=="Gsharp") {
+  else if(freq_name=="Gsharp") {
     toG(); toLOW(dot);
   }
-  else if(sound_name=="G") 
+  else if(freq_name=="G") 
     toG(); 
-  else if(sound_name=="Asharp") {
+  else if(freq_name=="Asharp") {
     toA(); toLOW(dot);
   }
-  else if(sound_name=="A") 
+  else if(freq_name=="A") 
     toA(); 
-  else if(sound_name=="Csharp") {
+  else if(freq_name=="Csharp") {
     toC(); toLOW(dot);
   } 
-  else if(sound_name=="B") 
+  else if(freq_name=="B") 
     toB();
 //---Check the state of the switches
   if (SW1_real == 0 && digitalRead(A4) == HIGH) {
@@ -163,7 +164,7 @@ void loop() {
     SW0_real = 0;
 //---Control of the piezo buzzer with the switch
   if (SW1 == 1) 
-    tone(A1, sound_freq);
+    tone(A1, target_freq);
   else 
     noTone(A1);
 //---Read the frequency through bluetooth communication
@@ -178,7 +179,7 @@ void loop() {
     }
   freq=atoi(freq1);
     
-  double gap = sound_freq - freq;
+  double gap = target_freq - freq;
   //if (gap>255) gap = 255;
   //else if(gap<255) gap = -255;
   
@@ -205,8 +206,8 @@ void loop() {
     analogWrite(6, 0);
     digitalWrite(4, LOW);
   }
-   Serial.print(sound_freq); Serial.print(" "); Serial.print(freq); Serial.print(" "); Serial.println(gap);
+   Serial.print(target_freq); Serial.print(" "); Serial.print(freq); Serial.print(" "); Serial.println(gap);
   //Serial.println(freq);
-  //Serial.println(sound_freq); 
+  //Serial.println(target_freq); 
   //Serial.println(gap);
 }
