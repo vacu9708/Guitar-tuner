@@ -11,7 +11,7 @@ void setup() {
   pinMode(A1, OUTPUT); //PIEZO
   pinMode(A2, OUTPUT); // g of the FND
   pinMode(A3, OUTPUT); // sharp
-  pinMode(A4, INPUT); //sound toggle
+  pinMode(A4, INPUT); //sound_freq toggle
   pinMode(A5, INPUT); //tuning toggle
   pinMode(4, OUTPUT);
   for (int f = 8; f <= 13; f++) 
@@ -60,92 +60,92 @@ void toB(){
   toLOW(f); toLOW(e); toLOW(d); toLOW(c); toLOW(g);
 }
 
-double sound = 0;//For saving the frequency
-String temp="";
+double sound_freq = 0;//For saving the frequency
+String sound_name="";
 void loop() {
   //---피에조에서 나는 소리와 7segments설정
   short VR = map(analogRead(A0),0,1023,33,555); //VR value to freqency range
   for (int k = 0; k <= 4; k++) { // Changing the harmonic to its base frequency with VR -= 65.4064 * (VR/65.406) will make this for loop unnecessary
     if (VR >= C[k] && VR < Csharp[k]) {
-      sound = C[k]; 
-      temp="C";
+      sound_freq = C[k]; 
+      sound_name="C";
     }
     else if (VR >= Csharp[k] && VR < D[k]) {
-      sound = Csharp[k]; 
-      temp="Csharp";
+      sound_freq = Csharp[k]; 
+      sound_name="Csharp";
     }
     else if (VR >= D[k] && VR < Dsharp[k]) {
-      sound = D[k]; 
-      temp="D";
+      sound_freq = D[k]; 
+      sound_name="D";
     }
     else if (VR >= Dsharp[k] && VR < E[k]) {
-      sound = Dsharp[k]; 
-      temp="Dsharp";
+      sound_freq = Dsharp[k]; 
+      sound_name="Dsharp";
     }
     else if (VR >= E[k] && VR < F[k]) {
-      sound = E[k]; 
-      temp="E";
+      sound_freq = E[k]; 
+      sound_name="E";
     }
     else if (VR >= F[k] && VR < Fsharp[k]) {
-      sound = F[k]; 
-      temp="F";
+      sound_freq = F[k]; 
+      sound_name="F";
     }
     else if (VR >= Fsharp[k] && VR < G[k]) {
-      sound = Fsharp[k]; 
-      temp="Fsharp";
+      sound_freq = Fsharp[k]; 
+      sound_name="Fsharp";
     }
     else if (VR >= G[k] && VR < Gsharp[k]) {
-      sound = G[k]; 
-      temp="G";
+      sound_freq = G[k]; 
+      sound_name="G";
     }
     else if (VR >= Gsharp[k] && VR < A[k]) {
-      sound = Gsharp[k]; 
-      temp="Gsharp";
+      sound_freq = Gsharp[k]; 
+      sound_name="Gsharp";
     }
     else if (VR >= A[k] && VR < Asharp[k]) {
-      sound = A[k]; 
-      temp="A";
+      sound_freq = A[k]; 
+      sound_name="A";
     }
     else if (VR >= Asharp[k] && VR < B[k]) {
-      sound = Asharp[k]; 
-      temp="Asharp";
+      sound_freq = Asharp[k]; 
+      sound_name="Asharp";
     }
     else if (VR >= B[k]) {
-      sound = B[k]; 
-      temp="B";
+      sound_freq = B[k]; 
+      sound_name="B";
     }
   }
   //---7segments on
   FND_off();
-  if(temp=="C") toC();
-  else if(temp=="Dsharp") {
+  if(sound_name=="C") toC();
+  else if(sound_name=="Dsharp") {
     toD(); 
     toLOW(dot);
   }
-  else if(temp=="D") 
+  else if(sound_name=="D") 
     toD(); 
-  else if(temp=="E") 
+  else if(sound_name=="E") 
     toE();
-  else if(temp=="Fsharp") {
+  else if(sound_name=="Fsharp") {
     toF(); 
     toLOW(dot);
   }
-  else if(temp=="F") 
+  else if(sound_name=="F") 
     toF();
-  else if(temp=="Gsharp") {
+  else if(sound_name=="Gsharp") {
     toG(); toLOW(dot);
   }
-  else if(temp=="G") 
+  else if(sound_name=="G") 
     toG(); 
-  else if(temp=="Asharp") {
+  else if(sound_name=="Asharp") {
     toA(); toLOW(dot);
   }
-  else if(temp=="A") 
+  else if(sound_name=="A") 
     toA(); 
-  else if(temp=="Csharp") {
+  else if(sound_name=="Csharp") {
     toC(); toLOW(dot);
   } 
-  else if(temp=="B") 
+  else if(sound_name=="B") 
     toB();
 //---Check the state of the switches
   if (SW1_real == 0 && digitalRead(A4) == HIGH) {
@@ -163,7 +163,7 @@ void loop() {
     SW0_real = 0;
 //---Control of the piezo buzzer with the switch
   if (SW1 == 1) 
-    tone(A1, sound);
+    tone(A1, sound_freq);
   else 
     noTone(A1);
 //---Read the frequency through bluetooth communication
@@ -178,7 +178,7 @@ void loop() {
     }
   freq=atoi(freq1);
     
-  double gap = sound - freq;
+  double gap = sound_freq - freq;
   //if (gap>255) gap = 255;
   //else if(gap<255) gap = -255;
   
@@ -205,8 +205,8 @@ void loop() {
     analogWrite(6, 0);
     digitalWrite(4, LOW);
   }
-   Serial.print(sound); Serial.print(" "); Serial.print(freq); Serial.print(" "); Serial.println(gap);
+   Serial.print(sound_freq); Serial.print(" "); Serial.print(freq); Serial.print(" "); Serial.println(gap);
   //Serial.println(freq);
-  //Serial.println(sound); 
+  //Serial.println(sound_freq); 
   //Serial.println(gap);
 }
