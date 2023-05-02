@@ -35,12 +35,12 @@ I tried to implement measuring the frequency, which is the most important part o
 
 ## May 2, 2023 Refactoring points
 I found out this old code has a bad maintainability.<br>
-A better file structure would be:
-Main.ino
-Switch.ino(sets the switch variables to give the modules that need them(notification, frequency_handling)
-notification
-ㅡNotifier.ino(imports VR_reader to control piezo buzzer and 7 segments)
-ㅡVR_reader.ino(reads VR value and sets target_freq and freq_name)
-frequency_handling
-ㅡFrequency_measurer.ino
-ㅡLED_controller.ino(controls LEDs according to the measured frequency)
+A better file structure would be:<br>
+>Main.ino<br>
+>Switch.ino(sets the switch variables to give the modules that need them(notification, frequency_handling)<br>
+>notification<br>
+>ㅡNotifier.ino(imports VR_reader to control piezo buzzer and 7 segments)<br>
+>ㅡVR_reader.ino(reads VR value and sets target_freq and freq_name)<br>
+>frequency_handling<br>
+>ㅡFrequency_measurer.ino<br>
+>ㅡLED_controller.ino(controls LEDs according to the measured frequency)<br>
