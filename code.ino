@@ -63,8 +63,8 @@ void toB(){
 double sound = 0;//For saving the frequency
 String temp="";
 void loop() {
+  //---피에조에서 나는 소리와 7segments설정
   short VR = map(analogRead(A0),0,1023,33,555); //VR value to freqency range
-//----------------피에조에서 나는 소리와 7segments제어
   for (int k = 0; k <= 4; k++) { // Changing the harmonic to its base frequency with VR -= 65.4064 * (VR/65.406) will make this for loop unnecessary
     if (VR >= C[k] && VR < Csharp[k]) {
       sound = C[k]; 
@@ -115,7 +115,7 @@ void loop() {
       temp="B";
     }
   }
-  //----- 7segments on
+  //---7segments on
   FND_off();
   if(temp=="C") toC();
   else if(temp=="Dsharp") {
@@ -147,7 +147,7 @@ void loop() {
   } 
   else if(temp=="B") 
     toB();
-//--------------------Check the state of the switches
+//---Check the state of the switches
   if (SW1_real == 0 && digitalRead(A4) == HIGH) {
     SW1 = !SW1;
     SW1_real = 1;
@@ -161,12 +161,12 @@ void loop() {
   }
   if (SW0_real == 1 && digitalRead(A5) == LOW) 
     SW0_real = 0;
-//----------------------Controlling the piezo buzzer with the switch
+//---Control of the piezo buzzer with the switch
   if (SW1 == 1) 
     tone(A1, sound);
   else 
     noTone(A1);
-//---------------------Preparing for turning on the LED with bluetooth communication
+//---Read the frequency through bluetooth communication
   short freq=0;
   char freq1[5];
   for(int i=0; i<=4; i++) freq1[i]=0;
@@ -181,7 +181,8 @@ void loop() {
   double gap = sound - freq;
   //if (gap>255) gap = 255;
   //else if(gap<255) gap = -255;
-//-------------------- Adjusting the LED according to the frequency
+  
+//---Adjusting the LED according to the measured frequency
   if (SW0 == 1&&SW1 == 0) { //The piezo and tuning mode can't work simultaneously
     digitalWrite(4, HIGH);
     if (freq > 9) {
