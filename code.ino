@@ -18,7 +18,7 @@ void setup() {
     pinMode(f, OUTPUT);
   C[0] = 32.7032, Csharp[0] = 34.6478, D[0] = 36.7081, Dsharp[0] = 38.8909, E[0] = 41.2034, F[0] = 43.6535, 
   Fsharp[0] = 46.2493, G[0] = 48.9994, Gsharp[0] = 51.9130, A[0] = 55, Asharp[0] = 58.2705, B[0] = 61.7354;
-  for (int f = 1; f <= 4; f++) {
+  for (int f = 1; f <= 4; f++) { // Changing the harmonic to its base frequency with VR -= 65.4064 * (VR/65.406) will make this for loop unnecessary
     C[f] = 2 * C[f - 1]; Csharp[f] = 2 * Csharp[f - 1]; D[f] = 2 * D[f - 1]; Dsharp[f] = 2 * Dsharp[f - 1]; E[f] = 2 * E[f - 1]; F[f] = 2 * F[f - 1];
     Fsharp[f] = 2 * Fsharp[f - 1]; G[f] = 2 * G[f - 1]; Gsharp[f] = 2 * Gsharp[f - 1]; A[f] = 2 * A[f - 1]; Asharp[f] = 2 * Asharp[f - 1]; B[f] = 2 * B[f - 1];
   }
