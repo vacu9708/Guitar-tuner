@@ -168,7 +168,7 @@ void loop() {
   else 
     noTone(A1);
 //---Read the frequency through bluetooth communication
-  short freq=0;
+  short measured_freq=0;
   char freq1[5];
   for(int i=0; i<=4; i++) freq1[i]=0;
   short k=0;
@@ -177,16 +177,16 @@ void loop() {
     delay(5);
     k++;
     }
-  freq=atoi(freq1);
+  measured_freq=atoi(freq1);
     
-  double gap = target_freq - freq;
+  double gap = target_freq - measured_freq;
   //if (gap>255) gap = 255;
   //else if(gap<255) gap = -255;
   
 //---Adjusting the LED according to the measured frequency
   if (SW0 == 1&&SW1 == 0) { //The piezo and tuning mode can't work simultaneously
     digitalWrite(4, HIGH);
-    if (freq > 9) {
+    if (measured_freq > 9) {
       if (gap < -1) { // 측정된 주파수가 기준 주파수보다 크면 오른쪽 LED
         analogWrite(6, 0);
         analogWrite(5, 255);
@@ -206,8 +206,8 @@ void loop() {
     analogWrite(6, 0);
     digitalWrite(4, LOW);
   }
-   Serial.print(target_freq); Serial.print(" "); Serial.print(freq); Serial.print(" "); Serial.println(gap);
-  //Serial.println(freq);
+   Serial.print(target_freq); Serial.print(" "); Serial.print(measured_freq); Serial.print(" "); Serial.println(gap);
+  //Serial.println(measured_freq);
   //Serial.println(target_freq); 
   //Serial.println(gap);
 }
