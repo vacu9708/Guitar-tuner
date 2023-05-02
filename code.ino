@@ -162,11 +162,13 @@ void loop() {
   }
   if (SW0_real == 1 && digitalRead(A5) == LOW) 
     SW0_real = 0;
+  
 //---Control of the piezo buzzer with the switch
   if (SW1 == 1) 
     tone(A1, target_freq);
   else 
     noTone(A1);
+  
 //---Read the frequency through bluetooth communication
   short measured_freq=0;
   char freq1[5];
