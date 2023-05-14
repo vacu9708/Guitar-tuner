@@ -38,8 +38,8 @@ I found out this old code has a bad maintainability.<br>
 A better file structure would be:<br>
 >Main.ino<br>
 >Switch.ino(sets the switch variables to give the modules that need them(Notifier.ino, LED_controller.ino)<br>
->notification<br>
->ㅡNotifier.ino(imports VR_reader to control piezo buzzer and 7 segments)<br>
+>frequency_setting<br>
+>ㅡFrequency_setter.ino(imports VR_reader to set the frequency and control piezo buzzer and 7 segments)<br>
 >ㅡVR_reader.ino(reads VR value and sets target_freq and freq_name)<br>
 >frequency_handling<br>
 >ㅡLED_controller.ino(imports Frequency_measurer.ino and controls LEDs according to the measured frequency)<br>
