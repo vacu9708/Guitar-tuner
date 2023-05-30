@@ -10,7 +10,7 @@
 * You can hear the target note by pressing ***Switch1*** and the sound is turned off by pressing it again. You can't tune while hearing it)
 * ***Switch0*** starts tuning
 * When the ***LED*** on the far right is on, it's in tuning mode.
-* If the frequency of the instrument measured is higher than the target frequency(that is, when the sound of the instrument is higher than the target sound) the ***LED*** on the right is turned on. When it's opposite, the ***LED*** on the left is turned on. When the sound of the instrument and the target sound are almost the same, both ***LEDs*** are turned on which means the tuning has been done well.
+* If the measured frequency is higher than the target frequency, the ***LED*** on the right is turned on. When it's opposite, the ***LED*** on the left is turned on. When the sound of the instrument and the target sound are almost the same, both ***LEDs*** are turned on which means the tuning has been done well.
 
 ## ⚒️Things used
 * **Arduino**
