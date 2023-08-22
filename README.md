@@ -1,6 +1,5 @@
 # 🎹(Guitar)-tuner
-
-<img src="https://user-images.githubusercontent.com/67142421/148652185-68497dea-50c6-4090-aba9-56ea0dacf683.jpg" width="400" height="500">
+![image](https://github.com/vacu9708/Guitar-tuner/assets/67142421/af334336-35db-4c46-88f3-4deb13d77ba0)
 
 ### 📺Video : https://youtu.be/h5mfWexaDTg
 ---
