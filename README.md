@@ -30,7 +30,7 @@ I tried to implement measuring the frequency which is the most important part of
 
 ---
 ## February 25, 2022
-[Fundamental working process of measuring frequencies](https://github.com/vacu9708/Signal-processing/tree/main/Fourier%20transform)
+### [Fundamental working process of measuring frequencies](https://github.com/vacu9708/Signal-processing/tree/main/Fourier%20transform)
 
 ## May 2, 2023 Refactoring points
 I found out this old code has a bad maintainability.<br>
