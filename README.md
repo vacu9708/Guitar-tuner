@@ -26,7 +26,7 @@ As far as I knew, the piezoelectric element was a bi-directional element where e
 Another problem : I did not know arduino(atmega128) could only receive 1 byte at a time. I searched for the problem and found out a way of merging each 1 byte with atoi() and managed to solve it.
 
 ## My opinion
-I tried to implement measuring the frequency, which is the most important part of a tuner. But I realized it was mathematically too complicated, so I used a library for it at first. I would like to write code for measuring the frequency on my own without using the library soon.
+I tried to implement measuring the frequency which is the most important part of a guitar tuner on my own. But I realized it was mathematically too complicated, so I used a library for it at first. I would like to write code for measuring the frequency without using the library soon.
 
 ---
 ## February 25, 2022
